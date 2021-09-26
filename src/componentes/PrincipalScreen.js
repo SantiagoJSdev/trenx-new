@@ -24,7 +24,7 @@ export const PrincipalScreen = () => {
     //     dispatch(startLogout())
     // }
 
-
+    
     return (
         <>
 

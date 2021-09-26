@@ -1,7 +1,45 @@
 import React from 'react'
+import { useForm } from '../hooks/useForm';
 import '../styles/styles-request.css'
 
 export const RequestServiceScreen = () => {
+
+
+    const [formValues, handleInputChange] = useForm({
+        name:"",
+        email:"",
+        phone:"",
+        message:"",
+        street:"",
+        city:"",
+        region:"",
+        postal:""
+
+    })
+
+    const {name, email, phone, message, street, city, region, postal} = formValues;
+
+
+const handleSubmit =(e) =>{
+    e.preventDefault()
+
+    console.log(name, email, phone, message, street, city, region, postal)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <div>
             <div className="container-request">
@@ -15,7 +53,8 @@ export const RequestServiceScreen = () => {
                 <div className="mitad2">
                     <div className="requestBox">
                         <h3> Request A Service </h3>
-
+                        <form
+                         onSubmit={handleSubmit}>
                         <div className="box">
                         <p>Name</p>
                         <div>
@@ -25,6 +64,8 @@ export const RequestServiceScreen = () => {
                                placeholder="Enter Your Name"
                                name="name"
                                autoComplete="off"
+                               value={name}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
@@ -38,6 +79,8 @@ export const RequestServiceScreen = () => {
                                placeholder="Enter Your Email"
                                name="email"
                                autoComplete="off"
+                               value={email}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
@@ -52,6 +95,8 @@ export const RequestServiceScreen = () => {
                                placeholder="Enter Your Phone"
                                name="phone"
                                autoComplete="off"
+                               value={phone}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
@@ -66,6 +111,8 @@ export const RequestServiceScreen = () => {
                                placeholder="Enter Your Message"
                                name="message"
                                autoComplete="off"
+                               value={message}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
@@ -80,6 +127,8 @@ export const RequestServiceScreen = () => {
                                placeholder="Street Address"
                                name="street"
                                autoComplete="off"
+                               value={street}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
@@ -94,6 +143,8 @@ export const RequestServiceScreen = () => {
                                placeholder="City"
                                name="city"
                                autoComplete="off"
+                               value={city}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
@@ -108,6 +159,8 @@ export const RequestServiceScreen = () => {
                                placeholder="Region/State/Province"
                                name="region"
                                autoComplete="off"
+                               value={region}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
@@ -122,12 +175,18 @@ export const RequestServiceScreen = () => {
                                placeholder="Postal/Zip Code"
                                name="postal"
                                autoComplete="off"
+                               value={postal}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
                         </div>
-                        <button className="btn-request btn-sumit"><a href="/">Sumit</a></button>
+                        <button 
+                        type="submit"
+                        className="btn-request btn-sumit">Sumit</button>
+                        </form>
                     </div>
+                   
 
                     <button className="btn-request btn-home1"><a href="/">HOME</a></button>
                   

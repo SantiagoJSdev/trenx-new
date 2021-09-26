@@ -139,19 +139,15 @@ body {
     margin-top: 30px;
     display: flex;
     margin-left: 200px;
+    /* line-height: 40px; */
+    justify-content: center;
+    align-items: center;
 
 
    
 }
 
-.btn-sumit a{
-    width: 100%;
-    height: 100%;
-    display: block;
-    text-decoration: none;
-    color: white;
-    line-height: 40px;
-}
+
 
 .btn-request {
     width: 120px;

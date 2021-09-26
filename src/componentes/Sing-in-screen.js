@@ -1,7 +1,49 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { startGoogleLogin, startLoginEmailPassword } from '../action/auth';
+
+import { useForm } from '../hooks/useForm';
 import '../styles/styles-sing-in.css'
 
-export const SingInScreen = () => {
+export const SingInScreen = ({history}) => {
+
+    const dispatch = useDispatch();
+    const {uid} = useSelector( state => state.auth );
+
+    const [formValues, handleInputChange] = useForm({
+        email:"",
+        password:""
+    })
+
+    const {email, password} = formValues;
+
+
+const handleSubmit =(e) =>{
+    e.preventDefault()
+    dispatch(startLoginEmailPassword(email,password))
+    console.log(email, password)
+}
+
+const handleGoogle = () => {
+
+    console.log('click')
+
+    dispatch(startGoogleLogin())
+}
+
+if (uid) {
+    history.push('/');
+     } 
+
+
+
+
+
+
+
+
+
+
     return (
         <> 
             <div className ="container-sing-in">
@@ -24,7 +66,9 @@ export const SingInScreen = () => {
                     <div className="caja-2">
 
                         <div className="heading">
-                                                <div className="Btn-sing-in">
+                                                <div 
+                                                onClick={handleGoogle}
+                                                className="Btn-sing-in">
                                                         <div 
                                                         className="google-btn"
                                                         >
@@ -40,7 +84,9 @@ export const SingInScreen = () => {
                         </div>
 
                         <p className="or">OR</p>
-
+                        <form 
+                        onSubmit={handleSubmit}
+                        >
                         <div className="box">
                         <p>Email</p>
                         <div>
@@ -50,6 +96,8 @@ export const SingInScreen = () => {
                                placeholder="Enter Your Email"
                                name="email"
                                autoComplete="off"
+                               value={email}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
@@ -64,14 +112,18 @@ export const SingInScreen = () => {
                                placeholder="Enter Your Password"
                                name="password"
                                autoComplete="off"
+                               value={password}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
                     </div>
 
-                    <button className="Btn-sing-in btn-login">Login</button>
+                    <button 
+                    type="submit"
+                    className="Btn-sing-in btn-login">Login</button>
 
-                 
+                    </form>
 
 
                     </div>

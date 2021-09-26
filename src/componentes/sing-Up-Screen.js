@@ -1,9 +1,71 @@
 
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { startGoogleLogin, startRegisterWithEmailPasswordName } from '../action/auth';
+import { uiError, uiRemoveError } from '../action/uiError';
+import { useForm } from '../hooks/useForm';
 import '../styles/styles-sing-up.css'
+import validator from 'validator';
 
 
-export const SingUpScreen = () => {
+export const SingUpScreen = ({history}) => {
+    const state = useSelector(state=>state)
+    const dispatch = useDispatch();
+
+    const [formValues, handleInputChange] = useForm({
+        name:"",
+        email:"",
+        password:""
+    })
+
+    const {name, email, password} = formValues;
+
+
+const handleSubmit =(e) =>{
+    e.preventDefault()
+
+    if (isFormVlaid()) {
+    dispatch(startRegisterWithEmailPasswordName(email,password,name))
+    }
+}
+
+
+const handleGoogle = () => {
+    dispatch(startGoogleLogin())
+}
+
+const isFormVlaid =()=>{
+
+    if (name.trim().length === 0) {
+        dispatch(uiError('name requerido'))
+        
+        return false
+    } else if ( !validator.isEmail(email)){
+        dispatch(uiError('email requerido'))
+        
+        return false
+    } else if ( password.length <5){ 
+    dispatch(uiError('Verifique password '))
+    
+    return false
+    }
+    dispatch(uiRemoveError())
+    return true
+
+}
+
+
+
+    if (state.auth.uid) {
+    history.push('/');
+     } 
+
+
+
+
+
+
+
     return (
         <> 
             <div className ="container-sing-up">
@@ -26,7 +88,7 @@ export const SingUpScreen = () => {
                     <div className="caja-2-2">
 
                         <div className="heading-1">
-                                                <div className="Btn-sing-up">
+                                                <div onClick={handleGoogle} className="Btn-sing-up">
                                                         <div 
                                                         className="google-btn-1"
                                                         >
@@ -42,7 +104,9 @@ export const SingUpScreen = () => {
                         </div>
 
                         <p className="or">OR</p>
-
+                        <form
+                        onSubmit={handleSubmit}
+                        >
                         <div className="box-1">
                         <p>Name</p>
                         <div>
@@ -52,6 +116,8 @@ export const SingUpScreen = () => {
                                placeholder="Enter Your Name"
                                name="name"
                                autoComplete="off"
+                               value={name}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
@@ -66,6 +132,8 @@ export const SingUpScreen = () => {
                                placeholder="Enter Your Email"
                                name="email"
                                autoComplete="off"
+                               value={email}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
@@ -80,14 +148,18 @@ export const SingUpScreen = () => {
                                placeholder="Enter 6+ Characters"
                                name="password"
                                autoComplete="off"
+                               value={password}
+                               onChange={handleInputChange}
                         
                             />
                         </div>
                     </div>
-
-                    <button className="Btn-sing-up btn-login-1">Register</button>
-
                  
+                    <button 
+                    type="submit"
+                    className="Btn-sing-up btn-login-1">Register</button>
+
+                    </form>
 
 
                     </div>
