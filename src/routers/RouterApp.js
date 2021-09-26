@@ -8,6 +8,7 @@ import {
   } from 'react-router-dom';
 
 import { PrincipalScreen } from '../componentes/PrincipalScreen';
+import { RequestServiceScreen } from '../componentes/RequestServiceScreen';
 import { ServiceScreen } from '../componentes/ServiceScreen';
 import { AuthRouter } from './AuthRouter';
 // import '../styles/styles.principal.css'
@@ -57,6 +58,13 @@ export const RouterApp = () => {
                     exact
                     path="/service"
                     component={ ServiceScreen }
+                        // isAuthenticated={isLoggedIn}
+                    />
+
+<Route 
+                    exact
+                    path="/contact"
+                    component={ RequestServiceScreen }
                         // isAuthenticated={isLoggedIn}
                     />
 

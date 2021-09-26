@@ -10,7 +10,7 @@ export const NavBar = () => {
                     <ul className="ul-1">
                         <li> <a href="/service"> SERVICE  </a> </li>
                         <li> <a href="/auth/products"> PRODUCTS </a> </li>
-                        <li> <a href="/auth/contact"> CONTACT </a> </li>
+                        <li> <a href="/contact"> CONTACT </a> </li>
                         <li> <a href="/auth/career" > CAREER </a> </li>
                         <li> <a href="/auth/otros"> </a> </li>
                     </ul>

@@ -37,7 +37,7 @@ export const PrincipalScreen = () => {
 
             <div className="container-2">
 
-                <div className="parrafo"> hola
+                <div className="parrafo"> Request A Service
 
                 </div>
                 <div className="flecha">

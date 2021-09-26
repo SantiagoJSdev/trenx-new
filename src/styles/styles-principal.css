@@ -81,7 +81,7 @@ body {
     overflow: hidden;
     position: absolute;
     display: flex;
-    justify-content: end;
+    /* justify-content: end; */
     align-items: flex-start;
     margin-top: -140px;
     margin-left: -40px;
