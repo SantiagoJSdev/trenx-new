@@ -8,15 +8,16 @@ export const SingInScreen = () => {
 
                 <div className="parte1">
                     <div className="container-img">
-                     <img className="img2" src = {"./img/logo.png"} alt="img"/> 
+                     <img className="img2" src = {"../img/logo.png"} alt="img"/> 
                      </div>
                 </div>
 
                 <div className="parte2">
 
-
+                <button className="Btn-sing-in btn-home"><a href="/">HOME</a></button>
                     <div className="caja-3">
-                        <p>Not a member? Sign up now</p>
+                    
+                        <p>Not a member? <a href="/auth/register"> Sign up now</a></p>
                     </div>
 
 

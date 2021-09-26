@@ -1,5 +1,6 @@
 import React from 'react'
-import { PrincipalScreen } from './componentes/PrincipalScreen'
+import { RouterApp } from './routers/RouterApp'
+
 
 
 
@@ -8,7 +9,7 @@ import { PrincipalScreen } from './componentes/PrincipalScreen'
 export const App = () => {
     return (
         <div>
-            <PrincipalScreen/>
+            <RouterApp/>
         </div>
     )
 }

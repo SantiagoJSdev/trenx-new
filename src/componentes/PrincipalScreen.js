@@ -2,6 +2,7 @@
 
 import React from 'react'
 import '../styles/styles-principal.css'
+import { NavBar } from './NavBar'
 // import './img/'
 // import { useDispatch, useSelector } from 'react-redux'
 // import '../../styles/typo.css'
@@ -28,41 +29,7 @@ export const PrincipalScreen = () => {
         <>
 
             <div id="lol" className="container-1 primero">
-                <nav className="nav-bar">
-                    <div className="logo">
-                        <img className="img" src={"./img/logo.png"} alt="img" />
-                    </div>
-                    <ul className="ul-1">
-                        <li> <a href="/auth/login"> SERVICE  </a> </li>
-                        <li> <a href="/auth/products"> PRODUCTS </a> </li>
-                        <li> <a href="/auth/contact"> CONTACT </a> </li>
-                        <li> <a href="/auth/career" > CAREER </a> </li>
-                        <li> <a href="/auth/otros"> </a> </li>
-                    </ul>
-
-                    {/* <ul className="ul">
-                  
-                      <li> <a href="/auth/login"></a></li> 
-                   
-                      
-                      
-                      <li>    */}
-
-                    <div className="dropdown ul">
-
-                        <button className="dropdown-btn"><p id="p-3">ACCOUNT</p></button>
-
-
-                        <div className="dropdown-content">
-                            <a href="#">SING IN</a>
-                            <a href="#">CREATE ACCOUNT</a>
-
-                        </div>
-                    </div>
-
-                    {/* </li>
-                  </ul> */}
-                </nav>
+               <NavBar/>
 
             </div>
 
@@ -85,7 +52,7 @@ export const PrincipalScreen = () => {
                         including routine maintenance and any necessary installation</p>
 
                         <div className="flecha3">
-                        <button className="flecha3-btn"><a href="#lol">REGISTER</a></button>
+                        <button className="flecha3-btn"><a href="/auth/register">REGISTER</a></button>
 
                         </div>
 

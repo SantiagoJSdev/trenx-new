@@ -10,15 +10,16 @@ export const SingUpScreen = () => {
 
                 <div className="parte1-1">
                     <div className="container-img">
-                     <img className="img2" src = {"./img/logo.png"} alt="img"/> 
+                     <img className="img2" src = {"../img/logo.png"} alt="img"/> 
                      </div>
                 </div>
 
                 <div className="parte2-2">
-
+                <button className="Btn-sing-in btn-home-1"><a href="/">HOME</a></button>
 
                     <div className="caja-3-3">
-                        <p>Already a member? Sign In</p>
+                    
+                        <p>Already a member? <a href="/auth/login">  Sign In </a></p>
                     </div>
 
 
