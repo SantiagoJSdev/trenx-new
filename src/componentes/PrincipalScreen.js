@@ -1,6 +1,7 @@
 
 
 import React from 'react'
+
 import '../styles/styles-principal.css'
 import { NavBar } from './NavBar'
 // import './img/'
@@ -11,6 +12,8 @@ import { NavBar } from './NavBar'
 
 
 export const PrincipalScreen = () => {
+
+    // console.log(db)
 
     // const {uid} = useSelector( state => state.auth );
     // console.log(uid)

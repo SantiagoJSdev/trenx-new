@@ -1,10 +1,12 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { newdata } from '../action/data';
 import { useForm } from '../hooks/useForm';
 import '../styles/styles-request.css'
 
 export const RequestServiceScreen = () => {
 
-
+    const dispatch = useDispatch();
     const [formValues, handleInputChange] = useForm({
         name:"",
         email:"",
@@ -22,7 +24,7 @@ export const RequestServiceScreen = () => {
 
 const handleSubmit =(e) =>{
     e.preventDefault()
-
+    dispatch(newdata())
     console.log(name, email, phone, message, street, city, region, postal)
 }
 
